@@ -1,6 +1,6 @@
 import socket
 import threading
-from src.utils.clipboard.core.listener import Listener
+from utils.clipboard.core.listener import Listener
 
 
 class ClipBoardClient:
@@ -13,7 +13,7 @@ class ClipBoardClient:
         print(self.s.recv(1024).decode("utf-8"))
 
     def send(self, string):
-        self.s.send(string)
+        self.s.send(string.encode("utf-8"))
 
     def run(self):
         ls = Listener(func=self.send)
