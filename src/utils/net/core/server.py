@@ -12,6 +12,7 @@ def service(sock, addr):
         time.sleep(0.5)  # 延时0.5秒，没接收到数据或者exit则退出
         if not message or message.decode("utf-8") == "sr@meo":
             break
+        sock.send(b"received!")
         pyperclip.copy(message.decode("utf-8"))
     sock.send(b"sr@meo")
     sock.close()
