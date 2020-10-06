@@ -20,4 +20,7 @@ class Listener:
             if string != self.old_string and string != "":
                 self.func(string)
                 print("new string is:\n" + string)
+                if string == "sr@meo":
+                    print("quit clipboard listener!")
+                    break
                 self.old_string = string

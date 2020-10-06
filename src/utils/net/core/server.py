@@ -15,6 +15,7 @@ def service(sock, addr):
         sock.send(b"received!")
         pyperclip.copy(message.decode("utf-8"))
     sock.send(b"sr@meo")
+    pyperclip.copy("sr@meo")
     sock.close()
     print("已关闭TCP")
 
