@@ -14,6 +14,9 @@ class ClipBoardClient:
 
     def send(self, string):
         self.s.send(string.encode("utf-8"))
+        msg = self.s.recv(1024)
+        if not msg or msg.decode("utf-8") == "sr@meo":
+            self.s.close()
 
     def run(self):
         ls = Listener(func=self.send)

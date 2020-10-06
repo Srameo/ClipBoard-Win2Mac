@@ -17,8 +17,9 @@ def client(ip, delay=1):
         try:
             cc = ClipBoardClient(ip)
             return cc
-        except ConnectionRefusedError:
+        except ConnectionRefusedError as e:
             print("reconnect!")
+            print(e.strerror)
             time.sleep(delay)
 
 

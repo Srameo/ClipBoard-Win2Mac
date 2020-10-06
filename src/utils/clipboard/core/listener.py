@@ -19,4 +19,5 @@ class Listener:
             string = pyperclip.paste()
             if string != self.old_string and string != "":
                 self.func(string)
+                print("new string is:\n" + string)
                 self.old_string = string

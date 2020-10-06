@@ -13,6 +13,7 @@ def service(sock, addr):
         if not message or message.decode("utf-8") == "sr@meo":
             break
         pyperclip.copy(message.decode("utf-8"))
+    sock.send(b"sr@meo")
     sock.close()
     print("已关闭TCP")
 
